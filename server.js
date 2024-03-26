@@ -1,11 +1,26 @@
 const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const path = require('path');
+
 const {connectToDb, getDb} = require('./src/models/db');
 
 //Add additional sub-router files here
 const projectRouter = require('./src/routers/projectRouter');
 
+//Swet rate limiter up
+const limiter = rateLimit({
+  windowsMs: 15 * 60 * 1000, //period in ms - 15 mins
+  max: 100, //each ip limited to 100 req per window above
+  standardHeaders: true, //sends back this header
+  legacyHeaders: false, //disables x-regulate
+});
 //Initialise main app
 const app = express();
+app.use(cors()); //this opens to all domains
+app.use(helmet());
+app.use(limiter);
 
 //Setup app to be able to consume paramters from URLs
 app.use(express.json());
