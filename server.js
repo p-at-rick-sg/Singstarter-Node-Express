@@ -4,10 +4,11 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 
-const {connectToDb, getDb} = require('./src/models/db');
+const {connectToDb} = require('./src/models/db');
 
 //Add additional sub-router files here
 const projectRouter = require('./src/routers/projectRouter');
+const authRouter = require('./src/routers/authRouter');
 
 //Swet rate limiter up
 const limiter = rateLimit({
@@ -34,15 +35,14 @@ connectToDb(err => {
       console.log('Listening on Port TCP: 7001');
     });
   } else {
-    console.log('DB Connection Failed');
+    console.log('DB Connection Failed: ', err);
+    process.exit(1);
   }
 });
 
-// app.listen(7001, () => {
-//   console.log('listineing on some port');
-// });
-
-//Add the main routers and links to subn-routers here
-app.use('/api/project', projectRouter);
+//Add the main routers and links to sub-routers here
+app.use('/auth', authRouter);
+app.use('/api/users', authRouter);
+app.use('/api/projects', projectRouter);
 
 //Setup the app to listen on a port (add logic here for db connection later)
