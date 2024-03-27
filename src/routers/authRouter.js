@@ -11,7 +11,7 @@ router.put('/signup', signup);
 //Signin Endpoint
 router.post('/signin', signin);
 
-//get all user details endpoint
-router.get('/', getUsers);
+//refresh Endpoint
+router.post('/refresh', refresh)
 
 module.exports = router;

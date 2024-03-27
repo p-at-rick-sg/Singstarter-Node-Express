@@ -9,6 +9,7 @@ const {connectToDb} = require('./src/models/db');
 //Add additional sub-router files here
 const projectRouter = require('./src/routers/projectRouter');
 const authRouter = require('./src/routers/authRouter');
+const userRouter = require('./src/routers/userRouter');
 
 //Swet rate limiter up
 const limiter = rateLimit({
@@ -42,7 +43,7 @@ connectToDb(err => {
 
 //Add the main routers and links to sub-routers here
 app.use('/auth', authRouter);
-app.use('/api/users', authRouter);
+app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
 
 //Setup the app to listen on a port (add logic here for db connection later)
