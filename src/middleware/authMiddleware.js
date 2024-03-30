@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
+// I thionk there must be a way to bring this down into 2 by adding multiple role returns?
 
-const auth = (req, res, next) => {
+const authUser = (req, res, next) => {
   if (!('authorization' in req.headers)) {
     return res.status(400).json({
       status: 'error',
@@ -20,4 +21,46 @@ const auth = (req, res, next) => {
   }
 };
 
-exports.module = auth;
+const authContributor = (req, res, next) => {
+  if (!('authorization' in req.headers)) {
+    return res.status(400).json({status: 'error', msg: 'no token found'});
+  }
+
+  const token = req.headers['authorization'].replace('Bearer ', '');
+
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
+      if (decoded.role === 'contributor') {
+        req.decoded = decoded;
+        next();
+      } else throw new Error();
+    } catch (err) {
+      console.error('err.message');
+      return res.status(401).json({status: 'error', msg: 'missing token'});
+    }
+  }
+};
+
+const authAdmin = (req, res, next) => {
+  if (!('authorization' in req.headers)) {
+    return res.status(400).json({status: 'error', msg: 'no token found'});
+  }
+
+  const token = req.headers['authorization'].replace('Bearer ', '');
+
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
+      if (dcecoded.role === 'admin') {
+        req.decoded = decoded;
+        next();
+      } else throw new Error();
+    } catch (err) {
+      console.error('err.message');
+      return res.status(401).json({status: 'error', msg: 'missing token'});
+    }
+  }
+};
+
+module.exports = {authUser, authContributor, authAdmin};

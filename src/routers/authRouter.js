@@ -3,7 +3,7 @@ const router = express.Router();
 
 const auth = require('../middleware/authMiddleware');
 
-const {signup, signin, getUsers} = require('../controllers/authController');
+const {signup, signin, refresh} = require('../controllers/authController');
 
 //Signup Endpoint
 router.put('/signup', signup);
@@ -12,6 +12,6 @@ router.put('/signup', signup);
 router.post('/signin', signin);
 
 //refresh Endpoint
-router.post('/refresh', refresh)
+router.post('/refresh', refresh);
 
 module.exports = router;

@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const PORT = process.env.PORT || 7001;
 
 const {connectToDb} = require('./src/models/db');
 
@@ -32,7 +33,7 @@ app.use(express.urlencoded({extended: false}));
 
 connectToDb(err => {
   if (!err) {
-    app.listen(7001, () => {
+    app.listen(PORT, () => {
       console.log('Listening on Port TCP: 7001');
     });
   } else {
@@ -45,5 +46,3 @@ connectToDb(err => {
 app.use('/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
-
-//Setup the app to listen on a port (add logic here for db connection later)
