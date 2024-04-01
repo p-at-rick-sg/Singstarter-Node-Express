@@ -34,7 +34,7 @@ const seedProject = async (req, res) => {
     return res.status(200).json({status: 'ok', msg: 'project seeding successful'});
   } catch (err) {
     console.error(err.message);
-    return res.status(400).json({status: 'error', msg: 'seeding failed'}))
+    return res.status(400).json({status: 'error', msg: 'seeding failed'});
   }
 };
 
