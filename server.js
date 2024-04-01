@@ -11,6 +11,7 @@ const {connectToDb} = require('./src/models/db');
 const projectRouter = require('./src/routers/projectRouter');
 const authRouter = require('./src/routers/authRouter');
 const userRouter = require('./src/routers/userRouter');
+const paymentRouter = require('./src/routers/paymentRouter');
 
 //Swet rate limiter up
 const limiter = rateLimit({
@@ -46,3 +47,4 @@ connectToDb(err => {
 app.use('/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
+app.use('/api/payment', paymentRouter);

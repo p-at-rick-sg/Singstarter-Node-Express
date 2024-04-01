@@ -64,7 +64,7 @@ const signin = async (req, res) => {
       jwtid: uuidv4(),
     });
 
-    res.json({access, refresh}); //shorthnd - would be access: access etc
+    res.json({access, refresh}); 
   } catch (err) {
     console.error('failed login after password check');
     return res.status(400).json({error: err, msg: 'Other failed login error'});
