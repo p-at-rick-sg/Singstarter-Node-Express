@@ -15,15 +15,20 @@ const uploadToGCP = async (file, fileOutputName) => {
 };
 
 const uploadAsset = async (req, res) => {
-  const fileSuffix = req.file.originalname.split('.').pop();
-  const fileName = req.file.filename + '.' + fileSuffix;
-  const result = await uploadToGCP(req.file.path, fileName);
-  const imageURI = process.env.IMAGE_BASE_URI + result[0].id;
-  return res.status(200).json({
-    status: 'ok',
-    msg: 'file upload successful',
-    fileURL: imageURI,
-  });
+  try {
+    const fileSuffix = req.file.originalname.split('.').pop();
+    const fileName = req.file.filename + '.' + fileSuffix;
+    const result = await uploadToGCP(req.file.path, fileName);
+    const imageURI = process.env.IMAGE_BASE_URI + result[0].id;
+    return res.status(200).json({
+      status: 'ok',
+      msg: 'file upload successful',
+      fileURL: imageURI,
+    });
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.statrus(400).json({status: 'error', msg: 'file upload failed'});
+  }
 };
 
 module.exports = {uploadAsset};

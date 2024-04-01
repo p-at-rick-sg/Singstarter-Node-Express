@@ -11,12 +11,10 @@ const {uploadAsset} = require('../controllers/projectController');
 //GET
 
 //POST
-router.post('/uploadAsset', uploadAsset);
+router.post('/uploadAsset', upload.single('image'), uploadAsset);
 //PATCH
 
 //DELETE
 
 //Export
 module.exports = router;
-
-router.post('/file', upload.single('image'), uploadAsset);
