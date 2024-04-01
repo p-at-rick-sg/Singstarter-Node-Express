@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const path = require('path');
+
 const PORT = process.env.PORT || 7001;
 
 const {connectToDb} = require('./src/models/db');
@@ -13,7 +13,7 @@ const authRouter = require('./src/routers/authRouter');
 const userRouter = require('./src/routers/userRouter');
 const paymentRouter = require('./src/routers/paymentRouter');
 
-//Swet rate limiter up
+//Set rate limiter up
 const limiter = rateLimit({
   windowsMs: 15 * 60 * 1000, //period in ms - 15 mins
   max: 100, //each ip limited to 100 req per window above
