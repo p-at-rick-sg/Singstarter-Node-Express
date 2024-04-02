@@ -13,7 +13,7 @@ const QAndASchema = new mongoose.Schema({
   answer: {type: String, min: 20, max: 360, default: null},
 });
 
-// Need to add orders to the project document later
+// Need to add orders to the project mopdel later
 
 const ProjectSchema = new mongoose.Schema(
   {
@@ -38,4 +38,7 @@ const ProjectSchema = new mongoose.Schema(
   {collection: 'projects'}
 );
 
-module.exports = mongoose.model('Projects', ProjectSchema);
+const ProjectModel = mongoose.model('Projects', ProjectSchema);
+
+module.exports = {ProjectModel};
+// module.exports = mongoose.model('Projects', ProjectSchema);

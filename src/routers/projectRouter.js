@@ -12,6 +12,7 @@ const {
   getMyProjects,
   getQA,
   updateQ,
+  updateA,
 } = require('../controllers/projectController');
 //Import validators here
 
@@ -29,6 +30,7 @@ router.post('/uploadAsset/:projectID', upload.single('image'), uploadAsset);
 
 //PATCH
 router.patch('/q/:projectID', authUser, updateQ);
+router.patch('/a/:questionID', authContributor, updateA);
 //DELETE
 
 //Export

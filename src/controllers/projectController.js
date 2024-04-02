@@ -1,6 +1,6 @@
 require('dotenv').config();
 const {Storage} = require('@google-cloud/storage');
-const ProjectModel = require('../models/projectModel');
+const {ProjectModel} = require('../models/projectModel');
 const fs = require('fs').promises;
 const path = require('path');
 const {ObjectId} = require('mongodb');
@@ -80,11 +80,33 @@ const updateQ = async (req, res) => {
       {new: true}
     );
     const newQuestionId = result.qAndA[result.qAndA.length - 1].id;
-
     return res.status(200).json({status: 'ok', msg: 'added question', id: newQuestionId});
   } catch (err) {
     console.error('Error: ', err);
     return res.status(400).json({status: 'error', msg: 'failed to add question'});
+  }
+};
+
+const updateA = async (req, res) => {
+  try {
+    const objID = new ObjectId(req.params.questionID);
+    const test = await ProjectModel.find({'qAndA._id': objID});
+    if (test.length !== 1) {
+      console.log(test.length);
+      console.error('questionID not unique');
+      return res.status(400).json({status: 'error', msg: 'questionID is not unique'});
+    }
+    const test2 = await ProjectModel.find({'qAndA._id': objID}, {new: true});
+
+    const result = await ProjectModel.findOneAndUpdate(
+      {'qAndA._id': objID},
+      {$set: {'qAndA.$.answer': req.body.answer}},
+      {new: true}
+    );
+    return res.status(200).json({status: 'ok', msg: 'added answer'});
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.status(400).json({status: 'error', msg: 'failed to add answer'});
   }
 };
 
@@ -169,4 +191,5 @@ module.exports = {
   getMyProjects,
   getQA,
   updateQ,
+  updateA,
 };
