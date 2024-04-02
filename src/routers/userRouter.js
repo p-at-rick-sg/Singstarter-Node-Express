@@ -4,8 +4,9 @@ const {authUser, authContributor, authAdmin} = require('../middleware/authMiddle
 const {seedUser, getUser} = require('../controllers/userController');
 
 //get logged in user details endpoint
+router.get('/seed', seedUser);
 router.get('/:id', authUser, getUser);
-router.get('/seed');
+
 // payment endpoints
 router.get('/payment');
 router.post('/payment');

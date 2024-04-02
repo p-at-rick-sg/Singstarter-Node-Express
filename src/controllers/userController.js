@@ -1,12 +1,14 @@
 const UserModel = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
 const seedUser = async (req, res) => {
+  console.log('seeding users');
   try {
-    const passwordHash1 = await bcrypt.hash(password, 12);
-    const passwordHash2 = await bcrypt.hash(password, 12);
-    const passwordHash3 = await bcrypt.hash(password, 12);
-    UserModel.deleteMany({});
-    UserModel.create([
+    const passwordHash1 = await bcrypt.hash('password', 12);
+    const passwordHash2 = await bcrypt.hash('password', 12);
+    const passwordHash3 = await bcrypt.hash('password', 12);
+    await UserModel.deleteMany({});
+    await UserModel.create([
       {
         _id: '6700de6b1fd1162aae22ee20',
         email: 'user@test.com',
