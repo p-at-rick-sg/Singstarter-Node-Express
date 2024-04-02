@@ -53,6 +53,7 @@ const signin = async (req, res) => {
     const claims = {
       username: auth.email,
       role: auth.role,
+      id: auth.id,
     };
     const access = jwt.sign(claims, process.env.ACCESS_SECRET, {
       expiresIn: '30m',
@@ -64,7 +65,7 @@ const signin = async (req, res) => {
       jwtid: uuidv4(),
     });
 
-    res.json({access, refresh}); 
+    res.json({access, refresh});
   } catch (err) {
     console.error('failed login after password check');
     return res.status(400).json({error: err, msg: 'Other failed login error'});

@@ -3,6 +3,7 @@ const {Storage} = require('@google-cloud/storage');
 const ProjectModel = require('../models/projectModel');
 const fs = require('fs').promises;
 const path = require('path');
+const {ObjectId} = require('mongodb');
 
 const seedProject = async (req, res) => {
   try {
@@ -51,6 +52,42 @@ const getProjects = async (req, res) => {
   }
 };
 
+const getMyProjects = async (req, res) => {
+  try {
+    result = await ProjectModel.find({owner: req.decoded.id});
+    return res.status(200).json(result);
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.status(400).json({status: 'error', msg: 'failed to get contributors projects'});
+  }
+};
+
+const getQA = async (req, res) => {
+  try {
+    const result = await ProjectModel.findById(req.params.projectID);
+    res.status(200).json(result.qAndA);
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.status(400).json({status: 'error', msg: 'failed to get contributors projects'});
+  }
+};
+
+const updateQ = async (req, res) => {
+  try {
+    const result = await ProjectModel.findByIdAndUpdate(
+      req.params.projectID,
+      {$push: {qAndA: {question: req.body.question}}},
+      {new: true}
+    );
+    const newQuestionId = result.qAndA[result.qAndA.length - 1].id;
+
+    return res.status(200).json({status: 'ok', msg: 'added question', id: newQuestionId});
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.status(400).json({status: 'error', msg: 'failed to add question'});
+  }
+};
+
 const uploadToGCP = async (file, fileOutputName) => {
   try {
     const storage = new Storage();
@@ -87,7 +124,7 @@ const uploadAsset = async (req, res) => {
       deleteFile(filePath);
       //add the URL to the project model (need tp pull the project ID - add manually for testing)
       dbResult = await ProjectModel.findByIdAndUpdate(req.params.projectID, {
-        $push: {images: {URL: imageURI, description: 'test description'}},
+        $push: {images: {URL: imageURI, description: 'test description'}}, //need to add the desc from body
       });
       console.log(dbResult);
       //return the URL path for the caller
@@ -105,4 +142,31 @@ const uploadAsset = async (req, res) => {
   }
 };
 
-module.exports = {seedProject, uploadAsset, getProjects};
+const addProject = async (req, res) => {
+  console.log('on the correct func');
+  try {
+    const idObj = new ObjectId(req.decoded.id);
+    newProject = {};
+    newProject.owner = idObj;
+    newProject.title = req.body.title;
+    newProject.details = req.body.details;
+    newProject.target = req.body.target;
+    if ('endDate' in req.body) newProject.endDate = req.body.endDate;
+    const result = await ProjectModel.create(newProject);
+    console.log(result);
+    return res.status(200).json({status: 'ok', msg: 'successfully added project', id: result._id});
+  } catch (err) {
+    console.error('Error: ', err);
+    return res.status(400).json({status: 'error', msg: 'failed to add project'});
+  }
+};
+
+module.exports = {
+  seedProject,
+  uploadAsset,
+  getProjects,
+  addProject,
+  getMyProjects,
+  getQA,
+  updateQ,
+};

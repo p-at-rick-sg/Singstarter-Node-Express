@@ -5,7 +5,7 @@ const {seedUser, getUser} = require('../controllers/userController');
 
 //get logged in user details endpoint
 router.get('/seed', seedUser);
-router.get('/:id', authUser, getUser);
+router.get('/', authUser, getUser);
 
 // payment endpoints
 router.get('/payment');

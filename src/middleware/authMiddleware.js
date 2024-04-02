@@ -13,7 +13,7 @@ const authUser = (req, res, next) => {
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET); //decode the token
-      req.decoded = decoded; //update the req object with the decoded value (
+      req.decoded = decoded; //update the req object with the decoded value
       next(); //pass the control to the next item
     } catch (err) {
       return res.status(403).json({status: 'error', msg: 'missing token'});
