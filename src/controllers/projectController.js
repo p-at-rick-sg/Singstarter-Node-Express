@@ -13,6 +13,8 @@ const seedProject = async (req, res) => {
         _id: '6700ddf51fd1162aae22ea20',
         owner: '6607d0de21420541915eebdb',
         title: 'My cool new project',
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quidem quasi harum doloremque iusto quisquam repudiandae incidunt minima provident, magnam fugit unde aspernatur facilis alias. Voluptates nostrum distinctio nobis inventore!',
         images: [
           {
             URL: 'https://storage.googleapis.com/ga-project-3-assets/600x400.jpg',
@@ -135,6 +137,7 @@ const deleteFile = async filePath => {
 
 const uploadAsset = async (req, res) => {
   try {
+    console.log(req.file);
     const fileSuffix = req.file.originalname.split('.').pop();
     const fileName = req.file.filename + '.' + fileSuffix;
     const result = await uploadToGCP(req.file.path, fileName);
@@ -171,7 +174,7 @@ const addProject = async (req, res) => {
     newProject = {};
     newProject.owner = idObj;
     newProject.title = req.body.title;
-    newProject.details = req.body.details;
+    newProject.description = req.body.description;
     newProject.target = req.body.target;
     if ('endDate' in req.body) newProject.endDate = req.body.endDate;
     const result = await ProjectModel.create(newProject);

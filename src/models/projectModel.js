@@ -17,8 +17,9 @@ const QAndASchema = new mongoose.Schema({
 
 const ProjectSchema = new mongoose.Schema(
   {
-    title: {type: String, required: true, min: 10, max: 30},
     owner: {type: mongoose.Schema.Types.ObjectId, required: true},
+    title: {type: String, required: true, min: 10, max: 30},
+    description: {type: String, required: true},
     images: [{type: ImagesSchema}],
     qAndA: [{type: QAndASchema}],
     target: {type: Number, required: true, min: 100, max: 10000},
