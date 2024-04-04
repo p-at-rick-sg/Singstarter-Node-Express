@@ -56,7 +56,7 @@ const signin = async (req, res) => {
       id: auth.id,
     };
     const access = jwt.sign(claims, process.env.ACCESS_SECRET, {
-      expiresIn: '30m',
+      expiresIn: '10d',
       jwtid: uuidv4(),
     });
 
