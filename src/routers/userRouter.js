@@ -1,14 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {authUser, authContributor, authAdmin} = require('../middleware/authMiddleware');
-const {seedUser, getUser} = require('../controllers/userController');
+const {
+  authUser,
+  authContributor,
+  authAdmin,
+} = require("../middleware/authMiddleware");
+const {
+  seedUser,
+  getUser,
+  getAllUser,
+} = require("../controllers/userController");
 
 //get logged in user details endpoint
-router.get('/seed', seedUser);
-router.get('/', authUser, getUser);
+router.get("/seed", seedUser);
+router.get("/", authUser, getUser);
+router.get("/all", getAllUser);
 
 // payment endpoints
-router.get('/payment');
-router.post('/payment');
+router.get("/payment");
+router.post("/payment");
 
 module.exports = router;
