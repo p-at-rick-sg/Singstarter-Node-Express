@@ -35,6 +35,19 @@ const seedUser = async (req, res) => {
         company: "Awesome Company",
       },
       {
+        _id: "6700de6b1fd1162aae22ff31",
+        email: "contributor2@test.com",
+        passwordHash: passwordHash2,
+        firstName: "ContributeSecond",
+        lastName: "ContribLast",
+        address1: "somwhere",
+        town: "Bedok",
+        country: "singapore",
+        postcode: "545334",
+        role: "contributor",
+        company: "The Good Company",
+      },
+      {
         _id: "6700de6b1fd1162aae22ff55",
         email: "admin@test.com",
         passwordHash: passwordHash3,
@@ -126,7 +139,7 @@ const countUsersByRole = async (req, res) => {
 
   try {
     // Count documents where the role matches the query parameter
-    const count = await UserModel.countDocuments({ role: role });
+    const count = await UserModel.countDocuments({ role: "contributor" });
     return res.status(200).json({
       status: "success",
       role: role,
