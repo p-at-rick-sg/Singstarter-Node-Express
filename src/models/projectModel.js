@@ -9,8 +9,8 @@ const ImagesSchema = new mongoose.Schema({
 });
 
 const QAndASchema = new mongoose.Schema({
-  question: {type: String, min: 20, max: 3600},
-  answer: {type: String, min: 20, max: 360, default: null},
+  question: {type: String, minLength: 20, maxLength: 3600},
+  answer: {type: String, minLength: 20, maxLength: 360, default: null},
 });
 
 // Need to add orders to the project mopdel later
@@ -18,7 +18,7 @@ const QAndASchema = new mongoose.Schema({
 const ProjectSchema = new mongoose.Schema(
   {
     owner: {type: mongoose.Schema.Types.ObjectId, required: true},
-    title: {type: String, required: true, min: 10, max: 30},
+    title: {type: String, required: true, minLength: 10, maxLength: 40},
     description: {type: String, required: true},
     images: [{type: ImagesSchema}],
     qAndA: [{type: QAndASchema}],

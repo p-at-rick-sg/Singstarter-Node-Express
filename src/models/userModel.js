@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema(
     postcode: {type: String, required: true},
     telephone: {type: String, required: false},
     company: {type: String, required: false, min: 1, max: 40},
+    taxId: {type: String, required: false, min: 8, max: 16},
   },
   {collection: 'users'}
 );
