@@ -1,6 +1,7 @@
 const {ProjectModel, OrderModel} = require('../models/projectModel');
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const seedUser = async (req, res) => {
   console.log('seeding users');
@@ -34,6 +35,19 @@ const seedUser = async (req, res) => {
         postcode: '789789',
         role: 'contributor',
         company: 'Awesome Company',
+      },
+      {
+        _id: '6700de6b1fd1162aae22ff31',
+        email: 'contributor2@test.com',
+        passwordHash: passwordHash2,
+        firstName: 'ContributeSecond',
+        lastName: 'ContribLast',
+        address1: 'somwhere',
+        town: 'Bedok',
+        country: 'singapore',
+        postcode: '545334',
+        role: 'contributor',
+        company: 'The Good Company',
       },
       {
         _id: '6700de6b1fd1162aae22ff55',
@@ -130,3 +144,30 @@ const getAllUser = async (req, res) => {
 };
 
 module.exports = {seedUser, getUser, getAllUser, updateUser, seedOrder};
+const countUsersByRole = async (req, res) => {
+  const {role} = req.query; // Assume role is passed as a query parameter, e.g., /api/users/count?role=user
+
+  try {
+    // Count documents where the role matches the query parameter
+    const count = await UserModel.countDocuments({role: 'contributor'});
+    return res.status(200).json({
+      status: 'success',
+      role: role,
+      count: count,
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(400).json({
+      status: 'error',
+      msg: `Failed to retrieve count for role: ${role}`,
+    });
+  }
+};
+
+module.exports = {
+  seedUser,
+  getUser,
+  getAllUser,
+  updateUser,
+  countUsersByRole,
+};

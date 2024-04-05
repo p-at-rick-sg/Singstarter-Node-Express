@@ -13,6 +13,7 @@ const {
   getQA,
   updateQ,
   updateA,
+  countNumProject,
 } = require('../controllers/projectController');
 //Import validators here
 
@@ -20,10 +21,10 @@ const {
 
 //GET
 router.get('/seed', seedProject);
-
 router.get('/', getProjects);
 router.get('/myProjects', authContributor, getMyProjects);
 router.get('/qa/:projectID', getQA);
+router.get('/countProject', countNumProject);
 //PUT
 router.put('/', authContributor, addProject);
 //POST

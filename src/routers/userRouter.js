@@ -6,14 +6,14 @@ const {
   getUser,
   getAllUser,
   updateUser,
-  seedOrder,
+  countUsersByRole,
 } = require('../controllers/userController');
 
 //get logged in user details endpoint
 router.get('/seed', seedUser);
-router.get('/seedOrder', seedOrder);
 router.get('/', authUser, getUser);
 router.get('/all', getAllUser);
+router.get('/count', countUsersByRole);
 
 //Patch
 router.patch('/update', authUser, updateUser);
