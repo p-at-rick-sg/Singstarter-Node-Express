@@ -77,10 +77,10 @@ const updateUser = async (req, res) => {
   if ('active' in req.body) nupdatedUser.active = req.body.active;
   if ('role' in req.body) updatedUser.role = req.body.role;
   if ('telephone' in req.body) updatedUser.telephone = req.body.telephone;
-  console.log(req.decoded);
-  if (req.decoded.role === 'admin') {
+  console.log(req.body);
+  if (req.decoded.role === 'admin' && req.query.userID) {
     try {
-      console.log(`fetching user ID: ${req.query.userID} for admin use`);
+      console.log(`updating user ID: ${req.query.userID} for admin use`);
       result = await UserModel.findByIdAndUpdate(req.decoded.id, updatedUser);
       return res.status(200).json(result);
     } catch (err) {
@@ -89,7 +89,7 @@ const updateUser = async (req, res) => {
     }
   } else {
     try {
-      console.log(`fetching user ID: ${req.decoded.id} for end user`);
+      console.log(`updating user ID: ${req.decoded.id} for end user`);
       result = await UserModel.findByIdAndUpdate(req.decoded.id, updatedUser);
       return res.status(200).json(result);
     } catch (err) {
