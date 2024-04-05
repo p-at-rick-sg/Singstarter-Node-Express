@@ -304,4 +304,5 @@ module.exports = {
   getQA,
   updateQ,
   updateA,
+  countNumProject,
 };
