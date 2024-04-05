@@ -1,3 +1,4 @@
+const {ProjectModel, OrderModel} = require('../models/projectModel');
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
@@ -49,6 +50,25 @@ const seedUser = async (req, res) => {
       },
     ]);
     return res.status(200).json({status: 'ok', msg: 'user seeding successful'});
+  } catch (err) {
+    console.error(err.message);
+    return res.status(400).json({status: 'error', msg: 'user seeding failed'});
+  }
+};
+
+const seedOrder = async (req, res) => {
+  console.log('Seeding orders');
+  try {
+    await OrderModel.deleteMany({});
+    await OrderModel.create([
+      {
+        projectID: '6700ddf51fd1162aae22ea20',
+        userID: '6700de6b1fd1162aae22ee20',
+        totalValue: 100,
+        paymentID: 'pi_3P0bdFLxC0YAsxAS0PiWmldC',
+      },
+    ]);
+    return res.status(200).json({status: 'ok', msg: 'seeded an order'});
   } catch (err) {
     console.error(err.message);
     return res.status(400).json({status: 'error', msg: 'user seeding failed'});
@@ -109,4 +129,4 @@ const getAllUser = async (req, res) => {
   }
 };
 
-module.exports = {seedUser, getUser, getAllUser, updateUser};
+module.exports = {seedUser, getUser, getAllUser, updateUser, seedOrder};

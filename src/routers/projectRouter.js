@@ -20,6 +20,7 @@ const {
 
 //GET
 router.get('/seed', seedProject);
+
 router.get('/', getProjects);
 router.get('/myProjects', authContributor, getMyProjects);
 router.get('/qa/:projectID', getQA);

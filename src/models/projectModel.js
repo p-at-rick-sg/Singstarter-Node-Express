@@ -45,8 +45,9 @@ const OrderSchema = new mongoose.Schema(
   {
     projectID: {type: mongoose.Schema.Types.ObjectId, required: true},
     userID: {type: mongoose.Schema.Types.ObjectId, required: true},
-    value: {type: mongoose.Schema.Types.ObjectId, required: true},
-    paymentID: {type: String, required: true, minLength: 17, maxLength: 17}, //pi_3P0bdFLxC0YAsxAS0PiWmldC
+    totalValue: {type: Number, required: true, min: 10, max: 500},
+    paymentID: {type: String, required: true, minLength: 17, maxLength: 27},
+    createdDate: {type: Date, required: true, default: Date.now()}, //pi_3P0bdFLxC0YAsxAS0PiWmldC
   },
   {collection: 'orders'}
 );
