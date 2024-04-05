@@ -1,7 +1,6 @@
 const {ProjectModel, OrderModel} = require('../models/projectModel');
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
-const bcrypt = require('bcrypt');
 
 const seedUser = async (req, res) => {
   console.log('seeding users');
