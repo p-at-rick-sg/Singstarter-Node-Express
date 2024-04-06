@@ -137,17 +137,16 @@ const getQA = async (req, res) => {
   }
 };
 const getOrders = async (req, res) => {
+  console.log('hit the endpoint');
   const testObj = new ObjectId(req.query.projectID);
+  console.log(testObj);
   if (ObjectId.isValid(testObj)) {
-    console.log(test);
-    if (true) {
-      try {
-        const result = await OrderModel.find({projectID: req.query.projectID});
-        if (result.ok) return res.status(200).json(result);
-      } catch (err) {
-        console.error('Error: ', err);
-        return res.status(400).json({status: 'error', msg: 'failed to fetch orders'});
-      }
+    try {
+      const result = await OrderModel.find({projectID: req.query.projectID});
+      return res.status(200).json(result);
+    } catch (err) {
+      console.error('Error: ', err);
+      return res.status(400).json({status: 'error', msg: 'failed to fetch orders'});
     }
   }
 };
