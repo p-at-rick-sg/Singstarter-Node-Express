@@ -138,15 +138,19 @@ const getQA = async (req, res) => {
   }
 };
 const getOrders = async (req, res) => {
-  console.log('hit the endpoint');
   const testObj = new ObjectId(req.query.projectID);
-  console.log(testObj);
   if (ObjectId.isValid(testObj)) {
     try {
       const result = await OrderModel.find({projectID: req.query.projectID});
-      console.log(result);
-      // const userName = await
-      return res.status(200).json(result);
+
+      const order = await Promise.all(
+        result.map(async order => {
+          const user = await UserModel.findById(order.userID);
+          return {...order, customerEmail: user.email};
+        })
+      );
+
+      return res.status(200).json(order);
     } catch (err) {
       console.error('Error: ', err);
       return res.status(400).json({status: 'error', msg: 'failed to fetch orders'});
