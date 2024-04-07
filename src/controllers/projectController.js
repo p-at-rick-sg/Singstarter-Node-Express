@@ -12,7 +12,7 @@ const seedProject = async (req, res) => {
     await ProjectModel.create([
       {
         _id: '6700ddf51fd1162aae22ea20',
-        owner: '6700de6b1fd1162aae22ff30',
+        owner: '670012312fd1162aae22ff30',
         title: 'My cool new project',
         description:
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quidem quasi harum doloremque iusto quisquam repudiandae incidunt minima provident, magnam fugit unde aspernatur facilis alias. Voluptates nostrum distinctio nobis inventore!',
@@ -67,7 +67,7 @@ const seedProject = async (req, res) => {
 
       {
         _id: '6700ddf51fd1162aae22ea29',
-        owner: '6700de6b1fd1162aae22ff30',
+        owner: '670012312fd1162aae22ff30',
         title: 'Third Awesome Project! ',
         description: 'Please Fund my project, this is the third project',
         images: [
@@ -102,7 +102,6 @@ const seedProject = async (req, res) => {
 
 const getProjects = async (req, res) => {
   if (req.query.projectID) {
-    console.log(req.query.projectID);
     console.log(`fetching project id: ${req.query.projectID}`);
     result = await ProjectModel.find({_id: req.query.projectID});
     return res.status(200).json(result);
@@ -119,8 +118,12 @@ const getProjects = async (req, res) => {
 
 const getMyProjects = async (req, res) => {
   try {
+    console.log(req.decoded.id);
+    // String(req.decoded.id);
+    // const ownerId = new ObjectId(req.decoded.id);
+    console.log(req.decoded.id);
     const result = await ProjectModel.find({owner: req.decoded.id});
-    console.log(result);
+    console.log('your projects ', result);
     return res.status(200).json(result);
   } catch (err) {
     console.error('Error: ', err);
@@ -137,20 +140,23 @@ const getQA = async (req, res) => {
     return res.status(400).json({status: 'error', msg: 'failed to get contributors projects'});
   }
 };
+
 const getOrders = async (req, res) => {
   const testObj = new ObjectId(req.query.projectID);
   if (ObjectId.isValid(testObj)) {
     try {
       const result = await OrderModel.find({projectID: req.query.projectID});
-
-      const order = await Promise.all(
+      // set the user email into the object
+      console.log(result);
+      const orders = await Promise.all(
         result.map(async order => {
           const user = await UserModel.findById(order.userID);
+          console.log(user);
           return {...order, customerEmail: user.email};
         })
       );
 
-      return res.status(200).json(order);
+      return res.status(200).json(orders);
     } catch (err) {
       console.error('Error: ', err);
       return res.status(400).json({status: 'error', msg: 'failed to fetch orders'});
