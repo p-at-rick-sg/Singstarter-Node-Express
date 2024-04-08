@@ -158,7 +158,7 @@ const updateUser = async (req, res) => {
   if ("town" in req.body) updatedUser.town = req.body.town;
   if ("country" in req.body) updatedUser.country = req.body.country;
   if ("postcode" in req.body) updatedUser.postcode = req.body.postcode;
-  if ("active" in req.body) nupdatedUser.active = req.body.active;
+  if ("active" in req.body) updatedUser.active = req.body.active;
   if ("role" in req.body) updatedUser.role = req.body.role;
   if ("telephone" in req.body) updatedUser.telephone = req.body.telephone;
   console.log(req.body);
@@ -201,13 +201,33 @@ const getAllUser = async (req, res) => {
 
 const deleteUserById = async (req, res) => {
   try {
-    const result = await UserModel.findByIdAndDelete(req.decoded.id);
+    const result = await UserModel.findByIdAndDelete(req.params.id);
     return res.status(200).json(result);
   } catch (error) {
     console.error(error.message);
     return res
       .status(400)
       .json({ status: "error", msg: "failed to delete user by id" });
+  }
+};
+
+const updateUserById = async (req, res) => {
+  const updatedUser = {};
+  if ("firstName" in req.body) updatedUser.firstName = req.body.firstName;
+  if ("lastName" in req.body) updatedUser.lastName = req.body.lastName;
+  if ("role" in req.body) updatedUser.role = req.body.role;
+  if ("active" in req.body) updatedUser.active = req.body.active;
+  try {
+    const result = await UserModel.findByIdAndUpdate(
+      req.params.id,
+      updatedUser
+    );
+    return res.status(200).json(result);
+  } catch (error) {
+    console.error(error.message);
+    return res
+      .status(400)
+      .json({ status: "error", msg: "failed to update user by id" });
   }
 };
 
@@ -218,6 +238,7 @@ module.exports = {
   updateUser,
   seedOrder,
   deleteUserById,
+  updateUserById,
 };
 const countUsersByRole = async (req, res) => {
   const { role } = req.query; // Assume role is passed as a query parameter, e.g., /api/users/count?role=user
@@ -247,4 +268,5 @@ module.exports = {
   updateUser,
   countUsersByRole,
   deleteUserById,
+  updateUserById,
 };

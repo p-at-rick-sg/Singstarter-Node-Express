@@ -13,6 +13,7 @@ const {
   countUsersByRole,
   seedManyUser,
   deleteUserById,
+  updateUserById,
 } = require("../controllers/userController");
 
 //get logged in user details endpoint
@@ -24,6 +25,7 @@ router.get("/count", countUsersByRole);
 
 //Patch
 router.patch("/update", authUser, updateUser);
+router.patch("/update/:id", updateUserById);
 
 //Delete
 router.delete("/delete/:id", authAdmin, deleteUserById);
