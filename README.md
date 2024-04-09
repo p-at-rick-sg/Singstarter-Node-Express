@@ -37,7 +37,7 @@ TODO: Add project funding details/revenue
 A Singapore-based crowd funding app where users can pledge their money to help fund your next big idea
 
 ## Screenshots
-<Screenshots go here>
+Screenshots go here
 
 ## Technologies Used
 - React
@@ -47,10 +47,10 @@ A Singapore-based crowd funding app where users can pledge their money to help f
 - MongoDB w/ mongoose
 
 ## Getting Started
-<Getting started instructions go here>
+Getting started instructions go here
 
 ## Icebox Items
-<Icebox items go here>
+Icebox items go here
 
 ## References
-<References go here>
+References go here
