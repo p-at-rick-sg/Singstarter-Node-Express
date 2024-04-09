@@ -227,9 +227,10 @@ const deleteFile = async filePath => {
 
 const uploadAsset = async (req, res) => {
   try {
-    console.log(req.file);
     const fileSuffix = req.file.originalname.split('.').pop();
     const fileName = req.file.filename + '.' + fileSuffix;
+    console.log('here is the desc emelemnt: ', req.file);
+    const fileDescription = req.file.imageDescription || 'Default Image Description';
     const result = await uploadToGCP(req.file.path, fileName);
     if (result[0].id) {
       //compose the full url
@@ -239,7 +240,7 @@ const uploadAsset = async (req, res) => {
       deleteFile(filePath);
       //add the URL to the project model (need tp pull the project ID - add manually for testing)
       dbResult = await ProjectModel.findByIdAndUpdate(req.params.projectID, {
-        $push: {images: {URL: imageURI, description: 'test description'}}, //need to add the desc from body
+        $push: {images: {URL: imageURI, description: fileDescription}}, //need to add the desc from body
       });
       console.log(dbResult);
       //return the URL path for the caller
@@ -265,6 +266,7 @@ const addProject = async (req, res) => {
     newProject.title = req.body.title;
     newProject.description = req.body.description;
     newProject.target = req.body.target;
+    newProject.productCost = req.body.productCost;
     if ('endDate' in req.body) newProject.endDate = req.body.endDate;
     const result = await ProjectModel.create(newProject);
     console.log(result);

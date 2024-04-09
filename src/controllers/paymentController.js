@@ -1,7 +1,8 @@
 const stripe = require('stripe')(process.env.STRIPE_TEST);
 
 const createCheckout = async (req, res) => {
-  const FE_PORT = process.env.VITE_FE_PORT;
+  const FE_PORT = process.env.FE_PORT;
+  console.log(FE_PORT);
   console.log(`checkout api starting and port is set to ${FE_PORT}`);
 
   //create a session - taking the body parameters from the api call
@@ -21,8 +22,8 @@ const createCheckout = async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:' + PORT + '/success',
-    cancel_url: 'http://localhost:' + PORT + '/cancel',
+    success_url: 'http://localhost:' + FE_PORT + '/success',
+    cancel_url: 'http://localhost:' + FE_PORT + '/cancel',
   });
   res.json({id: session.id});
 };

@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema(
     address1: {type: String, required: true, min: 5, max: 100},
     address2: {type: String, required: false, min: 5, max: 100},
     town: {type: String, required: true, min: 4, max: 40},
-    country: {type: String, required: true, def: countryEnum[0]},
+    country: {type: String, required: true, default: countryEnum[0]},
     postcode: {type: String, required: true},
     telephone: {type: String, required: false},
     companyName: {type: String, required: false, min: 1, max: 40},
