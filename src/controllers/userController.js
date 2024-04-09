@@ -139,18 +139,6 @@ const getUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const updatedUser = {};
-<<<<<<< Updated upstream
-  if ("firstName" in req.body) updatedUser.firstName = req.body.firstName;
-  if ("lastName" in req.body) updatedUser.lasstName = req.body.lastName;
-  if ("address1" in req.body) updatedUser.address1 = req.body.address1;
-  if ("address2" in req.body) updatedUser.address2 = req.body.address2;
-  if ("town" in req.body) updatedUser.town = req.body.town;
-  if ("country" in req.body) updatedUser.country = req.body.country;
-  if ("postcode" in req.body) updatedUser.postcode = req.body.postcode;
-  if ("active" in req.body) updatedUser.active = req.body.active;
-  if ("role" in req.body) updatedUser.role = req.body.role;
-  if ("telephone" in req.body) updatedUser.telephone = req.body.telephone;
-=======
   if ('firstName' in req.body) updatedUser.firstName = req.body.firstName;
   if ('lastName' in req.body) updatedUser.lasstName = req.body.lastName;
   if ('address1' in req.body) updatedUser.address1 = req.body.address1;
@@ -161,7 +149,6 @@ const updateUser = async (req, res) => {
   if ('active' in req.body) nupdatedUser.active = req.body.active;
   if ('role' in req.body) updatedUser.role = req.body.role;
   if ('telephone' in req.body) updatedUser.telephone = req.body.telephone;
->>>>>>> Stashed changes
   console.log(req.body);
   if (req.decoded.role === 'admin' && req.query.userID) {
     try {
@@ -206,21 +193,16 @@ const deleteUserById = async (req, res) => {
 
 const updateUserById = async (req, res) => {
   const updatedUser = {};
-  if ("firstName" in req.body) updatedUser.firstName = req.body.firstName;
-  if ("lastName" in req.body) updatedUser.lastName = req.body.lastName;
-  if ("role" in req.body) updatedUser.role = req.body.role;
-  if ("active" in req.body) updatedUser.active = req.body.active;
+  if ('firstName' in req.body) updatedUser.firstName = req.body.firstName;
+  if ('lastName' in req.body) updatedUser.lastName = req.body.lastName;
+  if ('role' in req.body) updatedUser.role = req.body.role;
+  if ('active' in req.body) updatedUser.active = req.body.active;
   try {
-    const result = await UserModel.findByIdAndUpdate(
-      req.params.id,
-      updatedUser
-    );
+    const result = await UserModel.findByIdAndUpdate(req.params.id, updatedUser);
     return res.status(200).json(result);
   } catch (error) {
     console.error(error.message);
-    return res
-      .status(400)
-      .json({ status: "error", msg: "failed to update user by id" });
+    return res.status(400).json({status: 'error', msg: 'failed to update user by id'});
   }
 };
 
