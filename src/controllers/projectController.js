@@ -339,6 +339,26 @@ const countNumProject = async (req, res) => {
   }
 };
 
+const getProjectsBySearchTerm = async (req, res) => {
+  // Extract the search term from the query parameter
+  const searchTerm = req.query.term;
+
+  try {
+    // Use a regex to search for the term in the title field of the projects
+    // 'i' option makes it case-insensitive
+    const regex = new RegExp(searchTerm, "i");
+    const result = await ProjectModel.find({ title: { $regex: regex } });
+
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({
+      status: "error",
+      msg: "Server error during the search operation.",
+    });
+  }
+};
+
 module.exports = {
   seedProject,
   uploadAsset,
@@ -351,4 +371,5 @@ module.exports = {
   updateA,
   getOrders,
   countNumProject,
+  getProjectsBySearchTerm,
 };
