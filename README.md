@@ -29,3 +29,28 @@ View all active users
 Delete users
 Shows graphs for signups and activity
 TODO: Add project funding details/revenue
+
+# Draft begins here
+
+# SingStarter 
+
+A Singapore-based crowd funding app where users can pledge their money to help fund your next big idea
+
+## Screenshots
+<Screenshots go here>
+
+## Technologies Used
+- React
+- Tailwind
+- Material UI
+- express
+- MongoDB w/ mongoose
+
+## Getting Started
+<Getting started instructions go here>
+
+## Icebox Items
+<Icebox items go here>
+
+## References
+<References go here>
