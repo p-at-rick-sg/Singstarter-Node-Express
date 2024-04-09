@@ -46,6 +46,9 @@ Screenshots go here
 - express
 - MongoDB w/ mongoose
 
+## .env variables
+.env variables go here
+
 ## Getting Started
 Getting started instructions go here
 
