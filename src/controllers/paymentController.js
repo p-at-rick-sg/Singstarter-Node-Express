@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_TEST);
-const {OrderModel} = require('../models/projectModel');
+const {OrderModel, ProjectModel} = require('../models/projectModel');
 
 const createCheckout = async (req, res) => {
   const FE_PORT = process.env.FE_PORT;
@@ -41,13 +41,26 @@ const getSuccessDetails = async (req, res) => {
     const sessionResult = await stripe.checkout.sessions.retrieve(req.body.sessionID);
     if (sessionResult) {
       console.log(sessionResult);
-      dbResult = await OrderModel.findByIdAndUpdate();
-      return res.status(200).json(sessionResult);
+      orderUpdateResult = await OrderModel.findByIdAndUpdate(sessionResult.metadata.order_id, {
+        paymentID: sessionResult.payment_intent,
+      });
+
+      result = await OrderModel.findById(sessionResult.metadata.order_id);
+      const projectResult = await ProjectModel.findByIdAndUpdate(result.projectID, {
+        $inc: {target: result.totalValue},
+      });
+      console.log('project id should be this: ', projectResult);
+
+      return res.status(200).json({
+        orderID: sessionResult.metadata.order_id,
+        status: 'ok',
+        message: 'order successfully placed and db upadted',
+      });
     }
   } catch (err) {
     // Handle errors
     console.error('Error retrieving session details:', err);
-    return null;
+    return res.status(400).json({status: 'error', msg: 'failed to upadte the database'});
   }
 };
 
