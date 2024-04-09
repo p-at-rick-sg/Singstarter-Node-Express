@@ -21,6 +21,7 @@ const {
   countNumProject,
   getProjectPictures,
   getProjectsBySearchTerm,
+  addOrder,
   // countNumProject,
 } = require("../controllers/projectController");
 //Import validators here
@@ -36,8 +37,16 @@ router.get("/pictures/:projectID", getProjectPictures);
 router.get("/orders", authContributor, getOrders);
 router.get("/countProject", countNumProject);
 router.get("/search", getProjectsBySearchTerm);
+router.get("/seed", seedProject);
+router.get("/", getProjects);
+router.get("/myProjects", authContributor, getMyProjects);
+router.get("/qa/:projectID", getQA);
+router.get("/pictures/:projectID", getProjectPictures);
+router.get("/orders", authContributor, getOrders);
+router.get("/countProject", countNumProject);
 //PUT
 router.put("/", authContributor, addProject);
+router.put("/orders", authUser, addOrder);
 //POST
 router.post("/uploadAsset/:projectID", upload.single("image"), uploadAsset);
 

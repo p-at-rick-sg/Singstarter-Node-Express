@@ -188,6 +188,20 @@ const getOrders = async (req, res) => {
   }
 };
 
+const addOrder = async (req, res) => {
+  const orderObj = req.body;
+  console.log(orderObj);
+  try {
+    result = await OrderModel.create(orderObj);
+    return res.status(200).json(result);
+  } catch (err) {
+    console.error("failed to add order to project");
+    return res
+      .status(400)
+      .json({ status: "ok", msg: "failed to add order to database" });
+  }
+};
+
 const updateQ = async (req, res) => {
   try {
     const result = await ProjectModel.findByIdAndUpdate(
@@ -372,4 +386,5 @@ module.exports = {
   getOrders,
   countNumProject,
   getProjectsBySearchTerm,
+  addOrder,
 };
