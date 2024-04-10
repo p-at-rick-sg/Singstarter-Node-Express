@@ -47,6 +47,7 @@ Screenshots go here
 - MongoDB w/ mongoose
 
 ## .env variables
+```
 _Frontend .env:_
 TE_SERVER=http://localhost:7001
 VITE_FE_PORT=5173
@@ -69,7 +70,7 @@ IMAGE_BASE_URI=https://storage.googleapis.com/ga-project-3-assets/
 
 _Google_JSON_Creds_file_name
 winter-jet-212808-fc4a3206d0d7.json stored in root of backend
-
+```
 
 ## Getting Started
 Getting started instructions go here
