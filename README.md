@@ -79,8 +79,7 @@ Getting started instructions go here
 Icebox items go here
 
 ## References
-- [API Dictionary](https://docs.google.com/spreadsheets/d/1wfkbw6tjOfWev1ZcPoxbaVDZ3InfBr3GgQTUlA75zVo/edit#gid=833770197)
-  -hi   
+- [API Dictionary](https://docs.google.com/spreadsheets/d/1wfkbw6tjOfWev1ZcPoxbaVDZ3InfBr3GgQTUlA75zVo/edit#gid=833770197)   
 - [Material UI](https://mui.com/material-ui/getting-started/)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - [Stripe](https://docs.stripe.com/)
