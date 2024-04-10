@@ -79,4 +79,10 @@ Getting started instructions go here
 Icebox items go here
 
 ## References
-References go here
+- [API Dictionary](https://docs.google.com/spreadsheets/d/1wfkbw6tjOfWev1ZcPoxbaVDZ3InfBr3GgQTUlA75zVo/edit#gid=833770197)
+  -hi   
+- [Material UI](https://mui.com/material-ui/getting-started/)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [Stripe](https://docs.stripe.com/)
+- [date-fns](https://date-fns.org/v3.6.0/docs/format)
+- [recharts](https://recharts.org/en-US/)
