@@ -47,7 +47,29 @@ Screenshots go here
 - MongoDB w/ mongoose
 
 ## .env variables
-.env variables go here
+_Frontend .env:_
+TE_SERVER=http://localhost:7001
+VITE_FE_PORT=5173
+#GCP Storage Info
+VITE_GCP_ASSETS_URI=https://storage.googleapis.com/ga-project-3-assets/
+#Stripe Publishable Key
+VITE_STRIPE_PUB_KEY=
+
+_Backend .env:_
+PORT=7001
+FE_PORT=5173
+MONGO_URI=mongodb+srv://user:password@cluster0.for7dn9.mongodb.net/development
+ACCESS_SECRET=
+REFRESH_SECRET=
+STRIPE_TEST=
+PROJECT_ID=winter-jet-212808
+BUCKET_NAME=ga-project-3-assets
+GOOGLE_APPLICATION_CREDENTIALS=winter-jet-212808-fc4a3206d0d7.json
+IMAGE_BASE_URI=https://storage.googleapis.com/ga-project-3-assets/
+
+_Google_JSON_Creds_file_name
+winter-jet-212808-fc4a3206d0d7.json stored in root of backend
+
 
 ## Getting Started
 Getting started instructions go here
