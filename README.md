@@ -38,6 +38,33 @@ A Singapore-based crowd funding app where users can pledge their money to help f
 
 ## Screenshots
 Screenshots go here
+Landing Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-FE/assets/44813216/1f63ea94-25c6-40d5-9391-1696f83c2710)
+
+Discover/Search Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/afc759a3-f8ea-4a6b-aa44-c320ae2effc5)
+
+Signup Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/5e0b9570-a6c3-4896-9c5c-99f18bc0f049)
+
+Signin Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-FE/assets/44813216/0a300296-193e-4136-b0d9-c7b26cce6548)
+
+Project Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/20c094b4-1048-4979-b515-6c8b75b4e25d)
+
+Checkout Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/45d7f8bb-3a77-413a-a296-18f6f25e82a4)
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/875b4914-4b67-448c-a080-276503f566d8)
+
+Payment Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/f6f44a2f-c37b-47eb-ae89-de828febfad4)
+
+Admin Dashboard
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/91c352dc-da7b-4383-82c8-d214a10538b3)
+
+
+
 
 ## Technologies Used
 - React
