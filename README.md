@@ -46,6 +46,20 @@ Screenshots go here
 - express
 - MongoDB w/ mongoose
 
+## Getting Started
+Getting started instructions go here
+
+## Icebox Items
+Icebox items go here
+
+## References
+- [API Dictionary](https://docs.google.com/spreadsheets/d/1wfkbw6tjOfWev1ZcPoxbaVDZ3InfBr3GgQTUlA75zVo/edit#gid=833770197)   
+- [Material UI](https://mui.com/material-ui/getting-started/)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [Stripe](https://docs.stripe.com/)
+- [date-fns](https://date-fns.org/v3.6.0/docs/format)
+- [recharts](https://recharts.org/en-US/)
+
 ## .env variables
 ```
 _Frontend .env:_
@@ -72,16 +86,4 @@ _Google_JSON_Creds_file_name
 winter-jet-212808-fc4a3206d0d7.json stored in root of backend
 ```
 
-## Getting Started
-Getting started instructions go here
 
-## Icebox Items
-Icebox items go here
-
-## References
-- [API Dictionary](https://docs.google.com/spreadsheets/d/1wfkbw6tjOfWev1ZcPoxbaVDZ3InfBr3GgQTUlA75zVo/edit#gid=833770197)   
-- [Material UI](https://mui.com/material-ui/getting-started/)
-- [Tailwind CSS](https://tailwindcss.com/docs/installation)
-- [Stripe](https://docs.stripe.com/)
-- [date-fns](https://date-fns.org/v3.6.0/docs/format)
-- [recharts](https://recharts.org/en-US/)
