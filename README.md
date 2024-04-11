@@ -42,7 +42,7 @@ Landing Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-FE/assets/44813216/1f63ea94-25c6-40d5-9391-1696f83c2710)
 
 Discover/Search Page
-![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/afc759a3-f8ea-4a6b-aa44-c320ae2effc5)
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/c22a78a0-1195-489a-bf3c-9eb808a1dbd6)
 
 Signup Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/5e0b9570-a6c3-4896-9c5c-99f18bc0f049)
@@ -53,6 +53,9 @@ Signin Page
 Project Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/20c094b4-1048-4979-b515-6c8b75b4e25d)
 
+Profile Manager Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/a2a8fc7f-422d-4c8f-afb0-0b586065d76d)
+
 Checkout Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/45d7f8bb-3a77-413a-a296-18f6f25e82a4)
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/875b4914-4b67-448c-a080-276503f566d8)
@@ -60,9 +63,17 @@ Checkout Page
 Payment Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/f6f44a2f-c37b-47eb-ae89-de828febfad4)
 
+Contributor Member Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/d3bb1062-6923-41ae-8541-207b9f6afd48)
+
+Add Project Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/f4bc79bc-bcee-4f28-bc3d-9c303bfbf410)
+
 Admin Dashboard
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/91c352dc-da7b-4383-82c8-d214a10538b3)
 
+Page Not Found
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/f4112e93-247e-4aaf-aec0-b2abe52b3807)
 
 
 
