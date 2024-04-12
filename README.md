@@ -5,7 +5,7 @@ GA Project 3 Group 10
 Members: Benjamin Foo, Kristian Nielsen, Patrick Kittle
 
 **Overview:**
-We have build a localised model of Kickstarter. Our high level functionality is:
+We have built a localised model of Kickstarter fpr Singapore. Our high level functionality is:
 
 **User Interaction:**
 Home page showcasing the live projects in cards.
@@ -14,10 +14,10 @@ Signin to your account
 Manage your account/ugrade to a contributor
 Project details page- the images and text about trhe project.
 Ask questions about the prject to the owner
-Full purchase workflow - allow users to make payment to the project
+Full purchase workflow - allow users to make payment to the project and take paynment into Stripe
 
 **Contributor Interaction**
-Sigmup for an account
+Signup for an account
 Manage account 
 Member homw page listing all the projects 
 Add projects page
