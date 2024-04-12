@@ -4,40 +4,70 @@ GA Project 3 Group 10
 
 Members: Benjamin Foo, Kristian Nielsen, Patrick Kittle
 
-**Overview:**
-We have built a localised model of Kickstarter fpr Singapore. Our high level functionality is:
-
-**User Interaction:**
-Home page showcasing the live projects in cards.
-Signup for an account
-Signin to your account
-Manage your account/ugrade to a contributor
-Project details page- the images and text about trhe project.
-Ask questions about the prject to the owner
-Full purchase workflow - allow users to make payment to the project and take paynment into Stripe
-
-**Contributor Interaction**
-Signup for an account
-Manage account 
-Member homw page listing all the projects 
-Add projects page
-Manage project page - add images, update text, answer questions
-
-
-**Admin Interactions**
-View all active users
-Delete users
-Shows graphs for signups and activity
-TODO: Add project funding details/revenue
-
-# Draft begins here
-
 # SingStarter 
 
-A Singapore-based crowd funding app where users can pledge their money to help fund your next big idea
+A Singapore-based crowd funding app where users can pledge their money to help fund your next big idea.
+We have built a localised model of Kickstarter for Singapore. Our high level functionality is:
+
+
+## Technologies Used
+- React
+- Tailwind
+- Material UI
+- express
+- MongoDB w/ mongoose
+
+## Getting Started
+Before you begin, ensure you have met the following requirements:
+
+- Node.js (which includes npm)
+- MongoDB installed locally or access to a MongoDB database
+
+### Installation
+
+To install the project, follow these steps:
+
+1. Clone the repository:
+
+```bash
+#Frontend
+>git clone https://github.com/p-at-rick-sg/ga3-grp10-FE
+#Backend
+>git clone https://github.com/p-at-rick-sg/ga3-grp10-BE
+
+#Change working directory to project directory
+>cd your-project-directory
+>npm i 
+
+# Start both Front and Backend
+>npm start
+```
+
+### User Interactions
+- Home page showcasing the live projects in cards.
+- Signup for an account
+- Signin to your account
+- Manage your account/upgrade to a contributor
+- Project details page - images and text about the project.
+- Ask questions about the project to the owner
+- Full purchase workflow - allow users to make payment to the project and take paynment into Stripe
+
+### Contributor Interactions
+- Signup for an account
+- Manage account 
+- Member home page listing all the projects 
+- Add projects page
+- Manage project page - add images, update text, answer questions
+
+
+### Admin Interactions
+- View all active users
+- Delete users
+- Shows graphs for signups and activity
+- View project funding details/revenue
+
 
 ## Screenshots
-Screenshots go here
 Landing Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-FE/assets/44813216/1f63ea94-25c6-40d5-9391-1696f83c2710)
 
@@ -77,38 +107,6 @@ Page Not Found
 
 
 
-## Technologies Used
-- React
-- Tailwind
-- Material UI
-- express
-- MongoDB w/ mongoose
-
-## Getting Started
-Before you begin, ensure you have met the following requirements:
-
-- Node.js (which includes npm)
-- MongoDB installed locally or access to a MongoDB database
-
-### Installation
-
-To install the project, follow these steps:
-
-1. Clone the repository:
-
-```bash
-#Frontend
->git clone https://github.com/p-at-rick-sg/ga3-grp10-FE
-#Backend
->git clone https://github.com/p-at-rick-sg/ga3-grp10-BE
-
-#Change working directory to project directory
->cd your-project-directory
->npm i 
-
-# Start both Front and Backend
->npm start
-```
 ## Icebox Items
 Icebox items go here
 
