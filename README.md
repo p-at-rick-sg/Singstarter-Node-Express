@@ -85,8 +85,30 @@ Page Not Found
 - MongoDB w/ mongoose
 
 ## Getting Started
-Getting started instructions go here
+Before you begin, ensure you have met the following requirements:
 
+- Node.js (which includes npm)
+- MongoDB installed locally or access to a MongoDB database
+
+### Installation
+
+To install the project, follow these steps:
+
+1. Clone the repository:
+
+```bash
+#Frontend
+>git clone https://github.com/p-at-rick-sg/ga3-grp10-FE
+#Backend
+>git clone https://github.com/p-at-rick-sg/ga3-grp10-BE
+
+#Change working directory to project directory
+>cd your-project-directory
+>npm i 
+
+# Start both Front and Backend
+>npm start
+```
 ## Icebox Items
 Icebox items go here
 
