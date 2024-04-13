@@ -92,6 +92,12 @@ Checkout Page
 
 Payment Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/f6f44a2f-c37b-47eb-ae89-de828febfad4)
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/1c7e3a57-fbcb-4cc0-b636-f776944b9cc2)
+
+Order Success/Cancel Page
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/cd9ccf79-2633-4aa4-adea-2c04307683e0)
+![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/3b6c888f-10cf-476d-afce-54858b70956a)
+
 
 Contributor Member Page
 ![image](https://github.com/p-at-rick-sg/ga3-grp10-BE/assets/44813216/d3bb1062-6923-41ae-8541-207b9f6afd48)
